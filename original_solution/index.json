@@ -1,0 +1,35 @@
+{
+    "mappings": {
+      "dynamic": false,
+      "fields": {
+        "_id": {
+          "type": "objectId"
+        },
+        "country": {
+          "type": "token"
+        },
+        "email": {
+          "type": "string",
+          "analyzer": "lucene.keyword"
+        },
+        "mobile_no": {
+          "type": "string",
+          "analyzer": "lucene.standard"
+        },
+        "name": {
+          "type": "string",
+          "analyzer": "lucene.standard"
+        },
+        "resume_link": {
+          "type": "string"
+        },
+        "status": {
+          "type": "token"
+        },
+        "staffing_agency_id": {
+          "type": "objectId"
+        }
+      }
+    }
+  }
+  
