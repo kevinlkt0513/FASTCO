@@ -1,0 +1,551 @@
+{
+    "explainVersion" : "1",
+    "stages" : [
+        {
+            "$_internalSearchMongotRemote" : {
+                "mongotQuery" : {
+                    "index" : "giggers_full_text_search",
+                    "compound" : {
+                        "filter" : [
+                            {
+                                "equals" : {
+                                    "path" : "country",
+                                    "value" : "SG"
+                                }
+                            }
+                        ],
+                        "should" : [
+                            {
+                                "compound" : {
+                                    "must" : [
+                                        {
+                                            "wildcard" : {
+                                                "query" : "S*",
+                                                "path" : "name",
+                                                "allowAnalyzedField" : true
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "compound" : {
+                                    "must" : [
+                                        {
+                                            "wildcard" : {
+                                                "query" : "S*",
+                                                "path" : "email",
+                                                "allowAnalyzedField" : true
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "compound" : {
+                                    "must" : [
+                                        {
+                                            "wildcard" : {
+                                                "query" : "S*",
+                                                "path" : "mobile_no",
+                                                "allowAnalyzedField" : true
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "minimumShouldMatch" : 1.0
+                    }
+                },
+                "explain" : {
+                    "query" : {
+                        "type" : "BooleanQuery",
+                        "args" : {
+                            "must" : [
+
+                            ],
+                            "mustNot" : [
+
+                            ],
+                            "should" : [
+                                {
+                                    "path" : "compound.should[2].compound.must",
+                                    "type" : "MultiTermQueryConstantScoreBlendedWrapper",
+                                    "args" : {
+                                        "queries" : [
+                                            {
+                                                "type" : "WildcardQuery",
+                                                "args" : {
+                                                    "path" : "mobile_no",
+                                                    "value" : "s*"
+                                                },
+                                                "stats" : {
+                                                    "context" : {
+                                                        "millisElapsed" : 0.0
+                                                    },
+                                                    "match" : {
+                                                        "millisElapsed" : 0.0
+                                                    },
+                                                    "score" : {
+                                                        "millisElapsed" : 0.0
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "stats" : {
+                                        "context" : {
+                                            "millisElapsed" : 3.796821,
+                                            "invocationCounts" : {
+                                                "createWeight" : NumberLong(1),
+                                                "createScorer" : NumberLong(9)
+                                            }
+                                        },
+                                        "match" : {
+                                            "millisElapsed" : 0.00018,
+                                            "invocationCounts" : {
+                                                "nextDoc" : NumberLong(3)
+                                            }
+                                        },
+                                        "score" : {
+                                            "millisElapsed" : 0.0
+                                        }
+                                    }
+                                },
+                                {
+                                    "path" : "compound.should[1].compound.must",
+                                    "type" : "MultiTermQueryConstantScoreBlendedWrapper",
+                                    "args" : {
+                                        "queries" : [
+                                            {
+                                                "type" : "WildcardQuery",
+                                                "args" : {
+                                                    "path" : "email",
+                                                    "value" : "S*"
+                                                },
+                                                "stats" : {
+                                                    "context" : {
+                                                        "millisElapsed" : 0.0
+                                                    },
+                                                    "match" : {
+                                                        "millisElapsed" : 0.0
+                                                    },
+                                                    "score" : {
+                                                        "millisElapsed" : 0.0
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "stats" : {
+                                        "context" : {
+                                            "millisElapsed" : 4.785788,
+                                            "invocationCounts" : {
+                                                "createWeight" : NumberLong(1),
+                                                "createScorer" : NumberLong(9)
+                                            }
+                                        },
+                                        "match" : {
+                                            "millisElapsed" : 0.000213,
+                                            "invocationCounts" : {
+                                                "nextDoc" : NumberLong(3)
+                                            }
+                                        },
+                                        "score" : {
+                                            "millisElapsed" : 0.0
+                                        }
+                                    }
+                                },
+                                {
+                                    "path" : "compound.should[0].compound.must",
+                                    "type" : "MultiTermQueryConstantScoreBlendedWrapper",
+                                    "args" : {
+                                        "queries" : [
+                                            {
+                                                "type" : "WildcardQuery",
+                                                "args" : {
+                                                    "path" : "name",
+                                                    "value" : "s*"
+                                                },
+                                                "stats" : {
+                                                    "context" : {
+                                                        "millisElapsed" : 0.0
+                                                    },
+                                                    "match" : {
+                                                        "millisElapsed" : 0.0
+                                                    },
+                                                    "score" : {
+                                                        "millisElapsed" : 0.0
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "stats" : {
+                                        "context" : {
+                                            "millisElapsed" : 16.215034,
+                                            "invocationCounts" : {
+                                                "createWeight" : NumberLong(1),
+                                                "createScorer" : NumberLong(9)
+                                            }
+                                        },
+                                        "match" : {
+                                            "millisElapsed" : 0.47028,
+                                            "invocationCounts" : {
+                                                "nextDoc" : NumberLong(6175)
+                                            }
+                                        },
+                                        "score" : {
+                                            "millisElapsed" : 0.318287,
+                                            "invocationCounts" : {
+                                                "score" : NumberLong(6172)
+                                            }
+                                        }
+                                    }
+                                }
+                            ],
+                            "filter" : [
+                                {
+                                    "path" : "compound.filter",
+                                    "type" : "IndexOrDocValuesQuery",
+                                    "args" : {
+                                        "query" : [
+                                            {
+                                                "type" : "ConstantScoreQuery",
+                                                "args" : {
+                                                    "query" : {
+                                                        "type" : "TermQuery",
+                                                        "args" : {
+                                                            "path" : "country",
+                                                            "value" : "SG"
+                                                        },
+                                                        "stats" : {
+                                                            "context" : {
+                                                                "millisElapsed" : 5.176482,
+                                                                "invocationCounts" : {
+                                                                    "createWeight" : NumberLong(1),
+                                                                    "createScorer" : NumberLong(12)
+                                                                }
+                                                            },
+                                                            "match" : {
+                                                                "millisElapsed" : 0.0
+                                                            },
+                                                            "score" : {
+                                                                "millisElapsed" : 0.0
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "stats" : {
+                                                    "context" : {
+                                                        "millisElapsed" : 0.0
+                                                    },
+                                                    "match" : {
+                                                        "millisElapsed" : 0.0
+                                                    },
+                                                    "score" : {
+                                                        "millisElapsed" : 0.0
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "type" : "SortedSetDocValuesRangeQuery",
+                                                "args" : {
+
+                                                },
+                                                "stats" : {
+                                                    "context" : {
+                                                        "millisElapsed" : 0.0
+                                                    },
+                                                    "match" : {
+                                                        "millisElapsed" : 0.0
+                                                    },
+                                                    "score" : {
+                                                        "millisElapsed" : 0.0
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "stats" : {
+                                        "context" : {
+                                            "millisElapsed" : 5.275679,
+                                            "invocationCounts" : {
+                                                "createWeight" : NumberLong(1),
+                                                "createScorer" : NumberLong(9)
+                                            }
+                                        },
+                                        "match" : {
+                                            "millisElapsed" : 0.0
+                                        },
+                                        "score" : {
+                                            "millisElapsed" : 0.0
+                                        }
+                                    }
+                                }
+                            ],
+                            "minimumShouldMatch" : 1.0
+                        },
+                        "stats" : {
+                            "context" : {
+                                "millisElapsed" : 32.465869,
+                                "invocationCounts" : {
+                                    "createWeight" : NumberLong(1),
+                                    "createScorer" : NumberLong(6)
+                                }
+                            },
+                            "match" : {
+                                "millisElapsed" : 12.58508,
+                                "invocationCounts" : {
+                                    "nextDoc" : NumberLong(6175)
+                                }
+                            },
+                            "score" : {
+                                "millisElapsed" : 1.273042,
+                                "invocationCounts" : {
+                                    "score" : NumberLong(6172),
+                                    "setMinCompetitiveScore" : NumberLong(3)
+                                }
+                            }
+                        }
+                    },
+                    "collectors" : {
+                        "allCollectorStats" : {
+                            "millisElapsed" : 2.344011,
+                            "invocationCounts" : {
+                                "collect" : NumberLong(6172),
+                                "competitiveIterator" : NumberLong(3),
+                                "setScorer" : NumberLong(3)
+                            }
+                        }
+                    },
+                    "resultMaterialization" : {
+                        "stats" : {
+                            "millisElapsed" : 54.095528,
+                            "invocationCounts" : {
+                                "retrieveAndSerialize" : NumberLong(1)
+                            }
+                        }
+                    },
+                    "metadata" : {
+                        "mongotVersion" : "1.51.3",
+                        "mongotHostName" : "atlas-q4zcov-shard-00-02.4y4hg.mongodb.net",
+                        "indexName" : "giggers_full_text_search",
+                        "lucene" : {
+                            "totalSegments" : 3.0,
+                            "totalDocs" : 500000.0
+                        }
+                    },
+                    "resourceUsage" : {
+                        "majorFaults" : NumberLong(68),
+                        "minorFaults" : NumberLong(0),
+                        "userTimeMs" : NumberLong(10),
+                        "systemTimeMs" : NumberLong(0),
+                        "maxReportingThreads" : 1.0,
+                        "numBatches" : 1.0
+                    }
+                },
+                "requiresSearchMetaCursor" : true
+            },
+            "nReturned" : NumberLong(0),
+            "executionTimeMillisEstimate" : NumberLong(129)
+        },
+        {
+            "$_internalSearchIdLookup" : {
+
+            },
+            "nReturned" : NumberLong(0),
+            "executionTimeMillisEstimate" : NumberLong(129)
+        },
+        {
+            "$sort" : {
+                "sortKey" : {
+                    "name" : 1.0
+                }
+            },
+            "totalDataSizeSortedBytesEstimate" : NumberLong(0),
+            "usedDisk" : false,
+            "spills" : NumberLong(0),
+            "spilledDataStorageSize" : NumberLong(0),
+            "nReturned" : NumberLong(0),
+            "executionTimeMillisEstimate" : NumberLong(129)
+        },
+        {
+            "$facet" : {
+                "metadata" : [
+                    {
+                        "$internalFacetTeeConsumer" : {
+
+                        },
+                        "nReturned" : NumberLong(0),
+                        "executionTimeMillisEstimate" : NumberLong(129)
+                    },
+                    {
+                        "$group" : {
+                            "_id" : {
+                                "$const" : null
+                            },
+                            "totalCount" : {
+                                "$sum" : {
+                                    "$const" : 1.0
+                                }
+                            }
+                        },
+                        "maxAccumulatorMemoryUsageBytes" : {
+                            "totalCount" : NumberLong(0)
+                        },
+                        "totalOutputDataSizeBytes" : NumberLong(0),
+                        "usedDisk" : false,
+                        "spills" : NumberLong(0),
+                        "spilledDataStorageSize" : NumberLong(0),
+                        "numBytesSpilledEstimate" : NumberLong(0),
+                        "spilledRecords" : NumberLong(0),
+                        "nReturned" : NumberLong(0),
+                        "executionTimeMillisEstimate" : NumberLong(129)
+                    },
+                    {
+                        "$project" : {
+                            "totalCount" : true,
+                            "_id" : false
+                        },
+                        "nReturned" : NumberLong(0),
+                        "executionTimeMillisEstimate" : NumberLong(129)
+                    }
+                ],
+                "data" : [
+                    {
+                        "$internalFacetTeeConsumer" : {
+
+                        },
+                        "nReturned" : NumberLong(0),
+                        "executionTimeMillisEstimate" : NumberLong(0)
+                    },
+                    {
+                        "$limit" : NumberLong(20),
+                        "nReturned" : NumberLong(0),
+                        "executionTimeMillisEstimate" : NumberLong(0)
+                    }
+                ]
+            },
+            "nReturned" : NumberLong(1),
+            "executionTimeMillisEstimate" : NumberLong(129)
+        }
+    ],
+    "queryShapeHash" : "0F9B96E068E976B3956AC51CFC5AE0BC5470AC12D8256B12C65020ACF1CFE72D",
+    "serverInfo" : {
+        "host" : "atlas-q4zcov-shard-00-02.4y4hg.mongodb.net",
+        "port" : 27017.0,
+        "version" : "8.0.12",
+        "gitVersion" : "b60fc6875b5fb4b63cc0dbbd8dda0d6d6277921a"
+    },
+    "serverParameters" : {
+        "internalQueryFacetBufferSizeBytes" : 104857600.0,
+        "internalQueryFacetMaxOutputDocSizeBytes" : 104857600.0,
+        "internalLookupStageIntermediateDocumentMaxSizeBytes" : 104857600.0,
+        "internalDocumentSourceGroupMaxMemoryBytes" : 104857600.0,
+        "internalQueryMaxBlockingSortMemoryUsageBytes" : 104857600.0,
+        "internalQueryProhibitBlockingMergeOnMongoS" : 0.0,
+        "internalQueryMaxAddToSetBytes" : 104857600.0,
+        "internalDocumentSourceSetWindowFieldsMaxMemoryBytes" : 104857600.0,
+        "internalQueryFrameworkControl" : "trySbeRestricted",
+        "internalQueryPlannerIgnoreIndexWithCollationForRegex" : 1.0
+    },
+    "command" : {
+        "aggregate" : "users",
+        "pipeline" : [
+            {
+                "$search" : {
+                    "index" : "giggers_full_text_search",
+                    "compound" : {
+                        "filter" : [
+                            {
+                                "equals" : {
+                                    "path" : "country",
+                                    "value" : "SG"
+                                }
+                            }
+                        ],
+                        "should" : [
+                            {
+                                "compound" : {
+                                    "must" : [
+                                        {
+                                            "wildcard" : {
+                                                "query" : "S*",
+                                                "path" : "name",
+                                                "allowAnalyzedField" : true
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "compound" : {
+                                    "must" : [
+                                        {
+                                            "wildcard" : {
+                                                "query" : "S*",
+                                                "path" : "email",
+                                                "allowAnalyzedField" : true
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "compound" : {
+                                    "must" : [
+                                        {
+                                            "wildcard" : {
+                                                "query" : "S*",
+                                                "path" : "mobile_no",
+                                                "allowAnalyzedField" : true
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "minimumShouldMatch" : 1.0
+                    }
+                }
+            },
+            {
+                "$sort" : {
+                    "name" : 1.0
+                }
+            },
+            {
+                "$facet" : {
+                    "metadata" : [
+                        {
+                            "$count" : "totalCount"
+                        }
+                    ],
+                    "data" : [
+                        {
+                            "$skip" : 0.0
+                        },
+                        {
+                            "$limit" : 20.0
+                        }
+                    ]
+                }
+            }
+        ],
+        "cursor" : {
+
+        },
+        "$db" : "FastCo"
+    },
+    "ok" : 1.0,
+    "$clusterTime" : {
+        "clusterTime" : Timestamp(1754922141, 1),
+        "signature" : {
+            "hash" : BinData(0, "NNA8DX/OJBV9gQ3O5d9BD+2aH0U="),
+            "keyId" : NumberLong(7509379158867181574)
+        }
+    },
+    "operationTime" : Timestamp(1754922141, 1)
+}

@@ -1,0 +1,685 @@
+{
+    "explainVersion" : "1",
+    "stages" : [
+        {
+            "$_internalSearchMongotRemote" : {
+                "mongotQuery" : {
+                    "index" : "giggers_full_text_search_edit",
+                    "sort" : {
+                        "name" : 1.0
+                    },
+                    "compound" : {
+                        "filter" : [
+                            {
+                                "equals" : {
+                                    "path" : "country",
+                                    "value" : "SG"
+                                }
+                            }
+                        ],
+                        "should" : [
+                            {
+                                "autocomplete" : {
+                                    "path" : "name",
+                                    "query" : "S",
+                                    "fuzzy" : {
+                                        "maxEdits" : 1.0,
+                                        "prefixLength" : 1.0
+                                    }
+                                }
+                            },
+                            {
+                                "autocomplete" : {
+                                    "path" : "email",
+                                    "query" : "S",
+                                    "fuzzy" : {
+                                        "maxEdits" : 1.0,
+                                        "prefixLength" : 1.0
+                                    }
+                                }
+                            },
+                            {
+                                "autocomplete" : {
+                                    "path" : "mobile_no",
+                                    "query" : "S",
+                                    "fuzzy" : {
+                                        "maxEdits" : 1.0,
+                                        "prefixLength" : 1.0
+                                    }
+                                }
+                            }
+                        ],
+                        "minimumShouldMatch" : 1.0
+                    }
+                },
+                "explain" : {
+                    "query" : {
+                        "type" : "ConstantScoreQuery",
+                        "args" : {
+                            "query" : {
+                                "type" : "BooleanQuery",
+                                "args" : {
+                                    "must" : [
+
+                                    ],
+                                    "mustNot" : [
+
+                                    ],
+                                    "should" : [
+                                        {
+                                            "path" : "compound.should[0]",
+                                            "type" : "BooleanQuery",
+                                            "args" : {
+                                                "must" : [
+                                                    {
+                                                        "type" : "TermQuery",
+                                                        "args" : {
+                                                            "path" : "name",
+                                                            "value" : "s"
+                                                        },
+                                                        "stats" : {
+                                                            "context" : {
+                                                                "millisElapsed" : 0.445438,
+                                                                "invocationCounts" : {
+                                                                    "createWeight" : NumberLong(2),
+                                                                    "createScorer" : NumberLong(39)
+                                                                }
+                                                            },
+                                                            "match" : {
+                                                                "millisElapsed" : 0.07523,
+                                                                "invocationCounts" : {
+                                                                    "nextDoc" : NumberLong(1013)
+                                                                }
+                                                            },
+                                                            "score" : {
+                                                                "millisElapsed" : 0.018829,
+                                                                "invocationCounts" : {
+                                                                    "score" : NumberLong(101)
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "mustNot" : [
+
+                                                ],
+                                                "should" : [
+                                                    {
+                                                        "type" : "TermQuery",
+                                                        "args" : {
+                                                            "path" : "name",
+                                                            "value" : "s"
+                                                        },
+                                                        "stats" : {
+                                                            "context" : {
+                                                                "millisElapsed" : 0.044282,
+                                                                "invocationCounts" : {
+                                                                    "createWeight" : NumberLong(2),
+                                                                    "createScorer" : NumberLong(13)
+                                                                }
+                                                            },
+                                                            "match" : {
+                                                                "millisElapsed" : 0.0
+                                                            },
+                                                            "score" : {
+                                                                "millisElapsed" : 0.0
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "filter" : [
+
+                                                ],
+                                                "minimumShouldMatch" : 0.0
+                                            },
+                                            "stats" : {
+                                                "context" : {
+                                                    "millisElapsed" : 0.612914,
+                                                    "invocationCounts" : {
+                                                        "createWeight" : NumberLong(2),
+                                                        "createScorer" : NumberLong(39)
+                                                    }
+                                                },
+                                                "match" : {
+                                                    "millisElapsed" : 0.205465,
+                                                    "invocationCounts" : {
+                                                        "nextDoc" : NumberLong(1013)
+                                                    }
+                                                },
+                                                "score" : {
+                                                    "millisElapsed" : 0.031771,
+                                                    "invocationCounts" : {
+                                                        "score" : NumberLong(101)
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "path" : "compound.should[1]",
+                                            "type" : "BooleanQuery",
+                                            "args" : {
+                                                "must" : [
+                                                    {
+                                                        "type" : "TermQuery",
+                                                        "args" : {
+                                                            "path" : "email",
+                                                            "value" : "s"
+                                                        },
+                                                        "stats" : {
+                                                            "context" : {
+                                                                "millisElapsed" : 0.257523,
+                                                                "invocationCounts" : {
+                                                                    "createWeight" : NumberLong(2),
+                                                                    "createScorer" : NumberLong(39)
+                                                                }
+                                                            },
+                                                            "match" : {
+                                                                "millisElapsed" : 0.058332,
+                                                                "invocationCounts" : {
+                                                                    "nextDoc" : NumberLong(1013)
+                                                                }
+                                                            },
+                                                            "score" : {
+                                                                "millisElapsed" : 0.017594,
+                                                                "invocationCounts" : {
+                                                                    "score" : NumberLong(101)
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "mustNot" : [
+
+                                                ],
+                                                "should" : [
+                                                    {
+                                                        "type" : "TermQuery",
+                                                        "args" : {
+                                                            "path" : "email",
+                                                            "value" : "s"
+                                                        },
+                                                        "stats" : {
+                                                            "context" : {
+                                                                "millisElapsed" : 0.034616,
+                                                                "invocationCounts" : {
+                                                                    "createWeight" : NumberLong(2),
+                                                                    "createScorer" : NumberLong(13)
+                                                                }
+                                                            },
+                                                            "match" : {
+                                                                "millisElapsed" : 0.0
+                                                            },
+                                                            "score" : {
+                                                                "millisElapsed" : 0.0
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "filter" : [
+
+                                                ],
+                                                "minimumShouldMatch" : 0.0
+                                            },
+                                            "stats" : {
+                                                "context" : {
+                                                    "millisElapsed" : 0.38757,
+                                                    "invocationCounts" : {
+                                                        "createWeight" : NumberLong(2),
+                                                        "createScorer" : NumberLong(39)
+                                                    }
+                                                },
+                                                "match" : {
+                                                    "millisElapsed" : 0.182098,
+                                                    "invocationCounts" : {
+                                                        "nextDoc" : NumberLong(1013)
+                                                    }
+                                                },
+                                                "score" : {
+                                                    "millisElapsed" : 0.031593,
+                                                    "invocationCounts" : {
+                                                        "score" : NumberLong(101)
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "path" : "compound.should[2]",
+                                            "type" : "BooleanQuery",
+                                            "args" : {
+                                                "must" : [
+                                                    {
+                                                        "type" : "TermQuery",
+                                                        "args" : {
+                                                            "path" : "mobile_no",
+                                                            "value" : "s"
+                                                        },
+                                                        "stats" : {
+                                                            "context" : {
+                                                                "millisElapsed" : 0.066857,
+                                                                "invocationCounts" : {
+                                                                    "createWeight" : NumberLong(2),
+                                                                    "createScorer" : NumberLong(13)
+                                                                }
+                                                            },
+                                                            "match" : {
+                                                                "millisElapsed" : 0.0
+                                                            },
+                                                            "score" : {
+                                                                "millisElapsed" : 0.0
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "mustNot" : [
+
+                                                ],
+                                                "should" : [
+                                                    {
+                                                        "type" : "TermQuery",
+                                                        "args" : {
+                                                            "path" : "mobile_no",
+                                                            "value" : "s"
+                                                        },
+                                                        "stats" : {
+                                                            "context" : {
+                                                                "millisElapsed" : 0.021137,
+                                                                "invocationCounts" : {
+                                                                    "createWeight" : NumberLong(2)
+                                                                }
+                                                            },
+                                                            "match" : {
+                                                                "millisElapsed" : 0.0
+                                                            },
+                                                            "score" : {
+                                                                "millisElapsed" : 0.0
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "filter" : [
+
+                                                ],
+                                                "minimumShouldMatch" : 0.0
+                                            },
+                                            "stats" : {
+                                                "context" : {
+                                                    "millisElapsed" : 0.115256,
+                                                    "invocationCounts" : {
+                                                        "createWeight" : NumberLong(2),
+                                                        "createScorer" : NumberLong(13)
+                                                    }
+                                                },
+                                                "match" : {
+                                                    "millisElapsed" : 0.0
+                                                },
+                                                "score" : {
+                                                    "millisElapsed" : 0.0
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "filter" : [
+                                        {
+                                            "path" : "compound.filter",
+                                            "type" : "IndexOrDocValuesQuery",
+                                            "args" : {
+                                                "query" : [
+                                                    {
+                                                        "type" : "ConstantScoreQuery",
+                                                        "args" : {
+                                                            "query" : {
+                                                                "type" : "TermQuery",
+                                                                "args" : {
+                                                                    "path" : "country",
+                                                                    "value" : "SG"
+                                                                },
+                                                                "stats" : {
+                                                                    "context" : {
+                                                                        "millisElapsed" : 0.232318,
+                                                                        "invocationCounts" : {
+                                                                            "createWeight" : NumberLong(2),
+                                                                            "createScorer" : NumberLong(51)
+                                                                        }
+                                                                    },
+                                                                    "match" : {
+                                                                        "millisElapsed" : 0.0
+                                                                    },
+                                                                    "score" : {
+                                                                        "millisElapsed" : 0.0
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "stats" : {
+                                                            "context" : {
+                                                                "millisElapsed" : 0.0
+                                                            },
+                                                            "match" : {
+                                                                "millisElapsed" : 0.0
+                                                            },
+                                                            "score" : {
+                                                                "millisElapsed" : 0.0
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "type" : "SortedSetDocValuesRangeQuery",
+                                                        "args" : {
+
+                                                        },
+                                                        "stats" : {
+                                                            "context" : {
+                                                                "millisElapsed" : 0.0
+                                                            },
+                                                            "match" : {
+                                                                "millisElapsed" : 0.0
+                                                            },
+                                                            "score" : {
+                                                                "millisElapsed" : 0.0
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "stats" : {
+                                                "context" : {
+                                                    "millisElapsed" : 0.466801,
+                                                    "invocationCounts" : {
+                                                        "createWeight" : NumberLong(2),
+                                                        "createScorer" : NumberLong(39)
+                                                    }
+                                                },
+                                                "match" : {
+                                                    "millisElapsed" : 0.051881,
+                                                    "invocationCounts" : {
+                                                        "refineRoughMatch" : NumberLong(101)
+                                                    }
+                                                },
+                                                "score" : {
+                                                    "millisElapsed" : 0.0
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "minimumShouldMatch" : 1.0
+                                },
+                                "stats" : {
+                                    "context" : {
+                                        "millisElapsed" : 2.487558,
+                                        "invocationCounts" : {
+                                            "createWeight" : NumberLong(2),
+                                            "createScorer" : NumberLong(26)
+                                        }
+                                    },
+                                    "match" : {
+                                        "millisElapsed" : 2.591366,
+                                        "invocationCounts" : {
+                                            "nextDoc" : NumberLong(1013)
+                                        }
+                                    },
+                                    "score" : {
+                                        "millisElapsed" : 0.096695,
+                                        "invocationCounts" : {
+                                            "score" : NumberLong(101)
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "stats" : {
+                            "context" : {
+                                "millisElapsed" : 1.753832,
+                                "invocationCounts" : {
+                                    "createWeight" : NumberLong(1),
+                                    "createScorer" : NumberLong(24)
+                                }
+                            },
+                            "match" : {
+                                "millisElapsed" : 2.713028,
+                                "invocationCounts" : {
+                                    "nextDoc" : NumberLong(1013)
+                                }
+                            },
+                            "score" : {
+                                "millisElapsed" : 0.0
+                            }
+                        }
+                    },
+                    "collectors" : {
+                        "allCollectorStats" : {
+                            "millisElapsed" : 1.13718,
+                            "invocationCounts" : {
+                                "collect" : NumberLong(1001),
+                                "competitiveIterator" : NumberLong(12),
+                                "setScorer" : NumberLong(12)
+                            }
+                        },
+                        "sort" : {
+                            "fieldInfos" : {
+
+                            },
+                            "stats" : {
+                                "prunedResultIterator" : {
+                                    "millisElapsed" : 0.06612,
+                                    "invocationCounts" : {
+                                        "nextDoc" : NumberLong(1013)
+                                    }
+                                },
+                                "comparator" : {
+                                    "millisElapsed" : 0.607474,
+                                    "invocationCounts" : {
+                                        "competitiveIterator" : NumberLong(12),
+                                        "setScorer" : NumberLong(12),
+                                        "setBottom" : NumberLong(1),
+                                        "compareBottom" : NumberLong(900),
+                                        "setHitsThresholdReached" : NumberLong(1)
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "resultMaterialization" : {
+                        "stats" : {
+                            "millisElapsed" : 2.273527,
+                            "invocationCounts" : {
+                                "retrieveAndSerialize" : NumberLong(1)
+                            }
+                        }
+                    },
+                    "metadata" : {
+                        "mongotVersion" : "1.51.3",
+                        "mongotHostName" : "atlas-q4zcov-shard-00-02.4y4hg.mongodb.net",
+                        "indexName" : "giggers_full_text_search_edit",
+                        "lucene" : {
+                            "totalSegments" : 12.0,
+                            "totalDocs" : 500000.0
+                        }
+                    },
+                    "resourceUsage" : {
+                        "majorFaults" : NumberLong(0),
+                        "minorFaults" : NumberLong(0),
+                        "userTimeMs" : NumberLong(0),
+                        "systemTimeMs" : NumberLong(0),
+                        "maxReportingThreads" : 1.0,
+                        "numBatches" : 1.0
+                    }
+                },
+                "requiresSearchMetaCursor" : true
+            },
+            "nReturned" : NumberLong(0),
+            "executionTimeMillisEstimate" : NumberLong(173)
+        },
+        {
+            "$_internalSearchIdLookup" : {
+
+            },
+            "nReturned" : NumberLong(0),
+            "executionTimeMillisEstimate" : NumberLong(173)
+        },
+        {
+            "$facet" : {
+                "metadata" : [
+                    {
+                        "$internalFacetTeeConsumer" : {
+
+                        },
+                        "nReturned" : NumberLong(0),
+                        "executionTimeMillisEstimate" : NumberLong(151)
+                    },
+                    {
+                        "$group" : {
+                            "_id" : {
+                                "$const" : null
+                            },
+                            "totalCount" : {
+                                "$sum" : {
+                                    "$const" : 1.0
+                                }
+                            }
+                        },
+                        "maxAccumulatorMemoryUsageBytes" : {
+                            "totalCount" : NumberLong(0)
+                        },
+                        "totalOutputDataSizeBytes" : NumberLong(0),
+                        "usedDisk" : false,
+                        "spills" : NumberLong(0),
+                        "spilledDataStorageSize" : NumberLong(0),
+                        "numBytesSpilledEstimate" : NumberLong(0),
+                        "spilledRecords" : NumberLong(0),
+                        "nReturned" : NumberLong(0),
+                        "executionTimeMillisEstimate" : NumberLong(151)
+                    },
+                    {
+                        "$project" : {
+                            "totalCount" : true,
+                            "_id" : false
+                        },
+                        "nReturned" : NumberLong(0),
+                        "executionTimeMillisEstimate" : NumberLong(151)
+                    }
+                ],
+                "data" : [
+                    {
+                        "$internalFacetTeeConsumer" : {
+
+                        },
+                        "nReturned" : NumberLong(0),
+                        "executionTimeMillisEstimate" : NumberLong(22)
+                    },
+                    {
+                        "$limit" : NumberLong(20),
+                        "nReturned" : NumberLong(0),
+                        "executionTimeMillisEstimate" : NumberLong(22)
+                    }
+                ]
+            },
+            "nReturned" : NumberLong(1),
+            "executionTimeMillisEstimate" : NumberLong(173)
+        }
+    ],
+    "queryShapeHash" : "A5006253C5C4DC71072F017B8705EB048FF349F8C8721519D512EBEDBE0B9817",
+    "serverInfo" : {
+        "host" : "atlas-q4zcov-shard-00-02.4y4hg.mongodb.net",
+        "port" : 27017.0,
+        "version" : "8.0.12",
+        "gitVersion" : "b60fc6875b5fb4b63cc0dbbd8dda0d6d6277921a"
+    },
+    "serverParameters" : {
+        "internalQueryFacetBufferSizeBytes" : 104857600.0,
+        "internalQueryFacetMaxOutputDocSizeBytes" : 104857600.0,
+        "internalLookupStageIntermediateDocumentMaxSizeBytes" : 104857600.0,
+        "internalDocumentSourceGroupMaxMemoryBytes" : 104857600.0,
+        "internalQueryMaxBlockingSortMemoryUsageBytes" : 104857600.0,
+        "internalQueryProhibitBlockingMergeOnMongoS" : 0.0,
+        "internalQueryMaxAddToSetBytes" : 104857600.0,
+        "internalDocumentSourceSetWindowFieldsMaxMemoryBytes" : 104857600.0,
+        "internalQueryFrameworkControl" : "trySbeRestricted",
+        "internalQueryPlannerIgnoreIndexWithCollationForRegex" : 1.0
+    },
+    "command" : {
+        "aggregate" : "users",
+        "pipeline" : [
+            {
+                "$search" : {
+                    "index" : "giggers_full_text_search_edit",
+                    "sort" : {
+                        "name" : 1.0
+                    },
+                    "compound" : {
+                        "filter" : [
+                            {
+                                "equals" : {
+                                    "path" : "country",
+                                    "value" : "SG"
+                                }
+                            }
+                        ],
+                        "should" : [
+                            {
+                                "autocomplete" : {
+                                    "path" : "name",
+                                    "query" : "S",
+                                    "fuzzy" : {
+                                        "maxEdits" : 1.0,
+                                        "prefixLength" : 1.0
+                                    }
+                                }
+                            },
+                            {
+                                "autocomplete" : {
+                                    "path" : "email",
+                                    "query" : "S",
+                                    "fuzzy" : {
+                                        "maxEdits" : 1.0,
+                                        "prefixLength" : 1.0
+                                    }
+                                }
+                            },
+                            {
+                                "autocomplete" : {
+                                    "path" : "mobile_no",
+                                    "query" : "S",
+                                    "fuzzy" : {
+                                        "maxEdits" : 1.0,
+                                        "prefixLength" : 1.0
+                                    }
+                                }
+                            }
+                        ],
+                        "minimumShouldMatch" : 1.0
+                    }
+                }
+            },
+            {
+                "$facet" : {
+                    "metadata" : [
+                        {
+                            "$count" : "totalCount"
+                        }
+                    ],
+                    "data" : [
+                        {
+                            "$skip" : 0.0
+                        },
+                        {
+                            "$limit" : 20.0
+                        }
+                    ]
+                }
+            }
+        ],
+        "cursor" : {
+
+        },
+        "$db" : "FastCo"
+    },
+    "ok" : 1.0,
+    "$clusterTime" : {
+        "clusterTime" : Timestamp(1754922231, 1),
+        "signature" : {
+            "hash" : BinData(0, "HBCg88Z/DH3+/y6t4GlDc70RKac="),
+            "keyId" : NumberLong(7509379158867181574)
+        }
+    },
+    "operationTime" : Timestamp(1754922231, 1)
+}

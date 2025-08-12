@@ -1,0 +1,28 @@
+{
+    "mappings": {
+      "dynamic": false,
+      "fields": {
+        "_id": {
+          "type": "objectId"
+        },
+        "country": {
+          "type": "token"
+        },
+        "email": {
+          "type": "autocomplete",
+          "minGrams": 1,
+          "maxGrams": 15
+        },
+        "mobile_no": {
+          "type": "autocomplete",
+          "minGrams": 1,
+          "maxGrams": 15
+        },
+        "name": {
+          "type": "autocomplete",
+          "minGrams": 1,
+          "maxGrams": 15
+        }
+      }
+    }
+  }
