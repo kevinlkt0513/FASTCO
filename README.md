@@ -15,5 +15,3 @@ The original solution used the general-purpose `wildcard` operator for prefix se
 - **[`original_solution/`](./original_solution)**: Contains the original query and its execution plan.
 - **[`optimized_solution/`](./optimized_solution)**: Contains the optimized index definition, query, and its execution plan.
 - **[`ANALYSIS.md`](./ANALYSIS.md)**: Provides a detailed quantitative comparison and in-depth analysis of the two solutions.
-
-This case study clearly demonstrates how to leverage advanced Atlas Search features to build high-performance, professional-grade search functionality.
