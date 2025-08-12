@@ -1,4 +1,4 @@
-# MongoDB Atlas Search Performance Optimization Case Study
+# MongoDB Atlas Search Performance Optimization Case
 
 This repository documents the end-to-end process of optimizing a MongoDB Atlas Search query.
 
